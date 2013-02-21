@@ -12,7 +12,7 @@ public class FlatPercentDiscount {
 
     private double rate;
 
-    public double getDiscount(int qty, double unitSell) {
+    public double getDiscount(double unitSell, int qty) {
         double amt = qty * unitSell * rate;
         return amt;
     }

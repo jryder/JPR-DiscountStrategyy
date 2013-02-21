@@ -4,17 +4,26 @@
  */
 package jpr.discountstrategy;
 
+
+
 /**
- *
+ * Pretty straightforward, just returns a flat discount amount
  * @author jryder
  */
-public class FlatAmountDiscount {
+public class FlatAmountDiscount implements DiscountStrategy {
     
+    double discountAmount;
+
+
+    public void setDiscountAmount(double discountAmount) {
+        this.discountAmount = discountAmount;
+    }
     
-    
-    
-    
-    
+    @Override
+    public double getDiscount(double unitSell, int qty){
+        return discountAmount;
+    }
+  
     public static void main(String[] args) {
         
     }
