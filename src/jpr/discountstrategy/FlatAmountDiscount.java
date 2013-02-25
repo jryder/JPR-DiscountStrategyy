@@ -27,4 +27,9 @@ public class FlatAmountDiscount implements DiscountStrategy {
     public static void main(String[] args) {
         
     }
+
+    @Override
+    public void setVariable(double var) {
+	discountAmount = var;
+    }
 }

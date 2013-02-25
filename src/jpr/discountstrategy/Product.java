@@ -20,6 +20,7 @@ public class Product {
 	productId = prod;
 	name = nam;
 	unitSell = sell;
+	
     }
 
     public int getProductId() {
@@ -43,7 +44,8 @@ public class Product {
     }
     
     public double getDiscount(){
-	return discountStrategy.getDiscount(unitSell, 2);
+	System.out.println("test");
+	return discountStrategy.getDiscount(2, 2); //pull this from the line item later
     
     }
 
@@ -60,21 +62,27 @@ public class Product {
     }
 
     public static void main(String[] args) {
-	Product p1 = new Product(123, "nice product", 50.00, new FlatPercentDiscount());
-
-	p1.getDiscount();
 	
-	Product p2 = new Product(123, "nice product", 50.00, new FlatAmountDiscount());
+	DiscountStrategy p = new FlatPercentDiscount();
+	p.setVariable(.20);
+	Product p1 = new Product(123, "nice product", 50.00, p);
+	//System.out.println(p1.getDiscount());
+	
+	System.out.println(p.getDiscount(1,2));
+	
+	
+	/*
+	DiscountStrategy f = new FlatAmountDiscount();
+	f.setVariable(10);
+	Product p2 = new Product(123, "nice product", 50.00, f);
 	FlatAmountDiscount d2 = new FlatAmountDiscount();
-	p2.getDiscount();	
+	System.out.println(p2.getDiscount());	
 	
 	DiscountStrategy q = new QtyIncreaseDiscount();
-	q.set;
-	Product p3 = new Product(123, "nice product", 50.00, new QtyIncreaseDiscount());
+	q.setVariable(.9);
+	Product p3 = new Product(123, "nice product", 50.00, q);
 	FlatAmountDiscount d3 = new FlatAmountDiscount();
-	p3.getDiscount();		
-	
-	
-	
+	System.out.println(p3.getDiscount());		
+	*/
     }
 }

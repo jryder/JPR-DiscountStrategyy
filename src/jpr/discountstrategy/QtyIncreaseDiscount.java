@@ -45,6 +45,11 @@ public class QtyIncreaseDiscount implements DiscountStrategy {
         
         
     }
+
+    @Override
+    public void setVariable(double var) {
+	startingDiscountRate = var;
+    }
     
     
 }

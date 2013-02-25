@@ -28,4 +28,9 @@ public class FlatPercentDiscount implements DiscountStrategy {
 
     public static void main(String[] args) {
     }
+
+    @Override
+    public void setVariable(double var) {
+	rate = var;
+    }
 }
