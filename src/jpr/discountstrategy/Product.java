@@ -10,24 +10,25 @@ package jpr.discountstrategy;
  */
 public class Product {
 
-    private int productId;
+    private String productId;
     private String name;
     private double unitSell;
-    DiscountStrategy discountStrategy;
+    private DiscountStrategy discountStrategy;
  
-    public Product(int prod, String nam, double sell, DiscountStrategy discountStrategy) {
+    public Product(String prod, String nam, double sell, DiscountStrategy disc) {
 
 	productId = prod;
 	name = nam;
 	unitSell = sell;
+	discountStrategy = disc;
 	
     }
 
-    public int getProductId() {
+    public String getProductId() {
 	return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(String productId) {
 	this.productId = productId;
     }
 
@@ -44,8 +45,8 @@ public class Product {
     }
     
     public double getDiscount(){
-	System.out.println("test");
-	return discountStrategy.getDiscount(2, 2); //pull this from the line item later
+
+	return  discountStrategy.getDiscount(unitSell, 2); //pull this from the line item later
     
     }
 
@@ -63,12 +64,7 @@ public class Product {
 
     public static void main(String[] args) {
 	
-	DiscountStrategy p = new FlatPercentDiscount();
-	p.setVariable(.20);
-	Product p1 = new Product(123, "nice product", 50.00, p);
-	//System.out.println(p1.getDiscount());
-	
-	System.out.println(p.getDiscount(1,2));
+
 	
 	
 	/*

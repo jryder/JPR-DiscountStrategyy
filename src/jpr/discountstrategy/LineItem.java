@@ -8,11 +8,11 @@ package jpr.discountstrategy;
  *
  * @author jorda_000
  */
-public class Startup {
-    public static void main(String[] args) {
-	
-	
+public class LineItem {
+    int qty;
+    Product product; 
+
+    public LineItem(Product product, int qty) {
+	throw new UnsupportedOperationException("Not yet implemented");
     }
-    
-    
 }

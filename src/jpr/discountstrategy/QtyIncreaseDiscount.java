@@ -12,9 +12,16 @@ public class QtyIncreaseDiscount implements DiscountStrategy {
     private double startingDiscountRate = 0.10;
     private double increment = 0.01;
 
+    
+    public QtyIncreaseDiscount(double startingDiscountRate, double increment ){
+	this.startingDiscountRate = startingDiscountRate;
+	this.increment = increment;
+    
+    }
+    
+    
     @Override
     public double getDiscount(double unitSell, int qty){
-        
         double highDiscount = startingDiscountRate + ((qty - 1) * increment);
         double avgDiscount = (startingDiscountRate + highDiscount) / 2;        
         double amt = qty * unitSell * (1 - avgDiscount);
@@ -40,8 +47,8 @@ public class QtyIncreaseDiscount implements DiscountStrategy {
     }
     
     public static void main(String[] args) {
-        QtyIncreaseDiscount q = new QtyIncreaseDiscount();
-        System.out.println(q.getDiscount(5, 10));
+        //QtyIncreaseDiscount q = new QtyIncreaseDiscount();
+        //System.out.println(q.getDiscount(5, 10));
         
         
     }

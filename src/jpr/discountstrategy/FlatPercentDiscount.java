@@ -12,6 +12,11 @@ public class FlatPercentDiscount implements DiscountStrategy {
 
     private double rate;
 
+    public FlatPercentDiscount(double rate){
+	this.rate = rate;
+    
+    }
+    
     public double getRate() {
 	return rate;
     }
