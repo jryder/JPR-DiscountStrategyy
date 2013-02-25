@@ -12,7 +12,7 @@ package jpr.discountstrategy;
  */
 public class FlatAmountDiscount implements DiscountStrategy {
     
-    double discountAmount;
+    private double discountAmount = 100;
 
 
     public void setDiscountAmount(double discountAmount) {

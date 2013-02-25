@@ -10,6 +10,5 @@ package jpr.discountstrategy;
  */
 public interface DiscountStrategy {
 
-    double getDiscount(double unitSell, int qty);
-     
+    public abstract double getDiscount(double unitSell, int qty);
 }

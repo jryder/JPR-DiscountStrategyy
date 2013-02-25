@@ -8,12 +8,12 @@ package jpr.discountstrategy;
  *
  * @author jryder
  */
-public class QtyIncreaseDiscount {
+public class QtyIncreaseDiscount implements DiscountStrategy {
     private double startingDiscountRate = 0.10;
     private double increment = 0.01;
 
-    
-    public double getDiscount(double qty, double unitSell){
+    @Override
+    public double getDiscount(double unitSell, int qty){
         
         double highDiscount = startingDiscountRate + ((qty - 1) * increment);
         double avgDiscount = (startingDiscountRate + highDiscount) / 2;        
