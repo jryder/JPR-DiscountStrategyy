@@ -11,9 +11,19 @@ package jpr.discountstrategy;
 class Customer {
     String customerId;
     String customerName;
+
+    public String getCustomerName() {
+	return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+	this.customerName = customerName;
+    }
     
     
-    Customer(String custId, String custName) {
+    public Customer(){};
+    
+    public Customer(String custId, String custName) {
 	customerId = custId;
 	customerName = custName;
     }

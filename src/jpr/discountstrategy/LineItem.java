@@ -9,10 +9,17 @@ package jpr.discountstrategy;
  * @author jorda_000
  */
 public class LineItem {
-    int qty;
-    Product product; 
+    private int qty;
+    private Product product; 
 
     public LineItem(Product product, int qty) {
-	throw new UnsupportedOperationException("Not yet implemented");
+	this.qty = qty;
+	this.product = product;
     }
+    
+     public double getOrigPriceSubtotal(){
+	 return product.getUnitSell() * qty;
+     
+     }
+    
 }
