@@ -9,7 +9,21 @@ package jpr.discountstrategy;
  * @author jorda_000
  */
 public class CashRegister {
+
     Receipt receipt;
+
+    public CashRegister() {
+	Receipt r = new Receipt();
+	FakeDatabase f = new FakeDatabase();
+        Customer c = f.findCustomer("100");
+	
+        
+        
+	//testing
+	System.out.println(c.getCustomerName());
+	r.addItemToSale("A101", 2);
+	System.out.println(r.getTotalBeforeDiscount());
+    }
     
     
     
