@@ -1,7 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
 package jpr.discountstrategy;
 
 /**
@@ -59,4 +57,15 @@ public class Receipt {
         }
         return grandTotal;
     }
+    
+     public double getTotalDiscount() {
+        double discount = 0.0;
+        for (LineItem item : lineItems) {
+            discount += item.getDiscount();            
+            System.out.println(discount);
+        }
+        return discount;
+    }   
+    
+    
 }

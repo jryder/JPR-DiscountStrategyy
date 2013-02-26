@@ -19,7 +19,11 @@ public class LineItem {
     
      public double getOrigPriceSubtotal(){
 	 return product.getUnitSell() * qty;
-     
      }
     
+    public double getDiscount(){
+        return product.getDiscount(qty);
+    } 
+     
+     
 }

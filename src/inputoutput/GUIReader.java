@@ -13,16 +13,28 @@ import javax.swing.JOptionPane;
 public class GUIReader implements Reader {
 
     private String message;
+    private String prompt = "Select a value to copy";
+
+    public GUIReader(){}
+    
+    @Override
+    public void setPrompt(String p){
+        prompt = p;
+    }
     
     @Override
     public void read() {
-	
-	this.message = JOptionPane.showInputDialog(null, message, "Enter value to Copy", 1);
+	this.message = JOptionPane.showInputDialog(null, prompt, prompt, 1);
     }
 
     @Override
     public String getMessage() {
 	return this.message;
     }
+
+
+    
+    
+    
     
 }

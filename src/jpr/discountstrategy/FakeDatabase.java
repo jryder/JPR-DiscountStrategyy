@@ -6,7 +6,7 @@ package jpr.discountstrategy;
  *
  * @author jorda_000
  */
-public class FakeDatabase {
+public class FakeDatabase implements DataConnectionStrategy {
 
     private Customer[] customers = {
         new Customer("100", "Aaron Rodgers"),
@@ -25,6 +25,7 @@ public class FakeDatabase {
     };
 
 
+    @Override
     public final Customer findCustomer(final String custId) {
         // validation is needed
         Customer customer = null;
@@ -38,6 +39,7 @@ public class FakeDatabase {
     }
 
 
+    @Override
     public final Product findProduct(final String prodId) {
         // validation is needed
         Product product = null;

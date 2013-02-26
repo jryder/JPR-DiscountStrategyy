@@ -11,10 +11,8 @@ package jpr.discountstrategy;
 public class Startup {
     public static void main(String[] args) {
 	
+        CashRegister cash = new CashRegister();
         
-
-
-	
     }
     
     

@@ -44,10 +44,8 @@ public class Product {
 	return name;
     }
     
-    public double getDiscount(){
-
-	return  discountStrategy.getDiscount(unitSell, 2); //pull this from the line item later
-    
+    public double getDiscount(int qty){
+	return  discountStrategy.getDiscount(unitSell, qty); //pull this from the line item later
     }
 
     public void setName(String name) {
@@ -65,8 +63,6 @@ public class Product {
     public static void main(String[] args) {
 	
 
-	
-	
 	/*
 	DiscountStrategy f = new FlatAmountDiscount();
 	f.setVariable(10);

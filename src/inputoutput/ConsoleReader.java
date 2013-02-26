@@ -10,6 +10,9 @@ import java.util.Scanner;
 public class ConsoleReader implements Reader {
     
     private String message;
+    private String prompt;
+    
+    
     
     @Override
     public void read() {
@@ -21,6 +24,11 @@ public class ConsoleReader implements Reader {
     @Override
     public String getMessage() {
 	return this.message;
+    }
+
+    @Override
+    public void setPrompt(String p) {
+        prompt = p;
     }
     
     
