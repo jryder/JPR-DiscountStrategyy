@@ -10,6 +10,7 @@ public class Receipt {
 
     LineItem lineItems[];
     Customer customer;
+    DataConnectionStrategy data;
 
     public Customer getCustomer() {
         return customer;

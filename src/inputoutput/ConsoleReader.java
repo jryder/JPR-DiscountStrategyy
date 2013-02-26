@@ -31,7 +31,12 @@ public class ConsoleReader implements Reader {
         prompt = p;
     }
     
-    
+    @Override
+    public String readAndReturn(String prompt) {
+        this.prompt = prompt;
+        this.read();
+        return this.getMessage();
+    }    
     
     
 }

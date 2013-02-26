@@ -32,6 +32,13 @@ public class GUIReader implements Reader {
 	return this.message;
     }
 
+    @Override
+    public String readAndReturn(String prompt) {
+        this.prompt = prompt;
+        this.read();
+        return this.getMessage();
+    }
+
 
     
     

@@ -13,31 +13,43 @@ import inputoutput.*;
 public class CashRegister {
 
     Receipt receipt;
+    Reader read;
+    DataConnectionStrategy data; //I still like the cash register to be connected to the data source
+    
+    public CashRegister(Reader read, DataConnectionStrategy data) {
+        this.read = read; 
+        this.data = data;
+    }
+    
+    
+    
+    public void startNewSales(){
+        Receipt r = new Receipt();
+    }
+    
+    public void printReceipt(){
+    
+    
+    }
+    
+    public void setCustomer(String customer){
+        read.setPrompt("Enter Customer Number");        
+        read.read();
+        receipt.setCustomer(data.findCustomer(read.getMessage()));  
+    }
+    
+    public void addItem(String prodId, int qty){
+        receipt.addItemToSale(prodId, qty);
+    }
+    
+    
 
-    public CashRegister() {
-	Receipt r = new Receipt();
-	FakeDatabase f = new FakeDatabase();
-        Reader read = new GUIReader();
 
-        //get customer from cashier
 
-        //read.setPrompt("Enter Customer Number");        
-        //read.read();
-        //Customer c = f.findCustomer(read.getMessage());
-	Customer c = f.findCustomer("100");
+
+
          
-        //scan product
-        //read.setPrompt("Enter Product ID");        
-        //read.read();
-	//r.addItemToSale(read.getMessage(), 1);
-        r.addItemToSale("A1", 1);
-        
-	System.out.println(c.getCustomerName());       
-	System.out.println("The total bill before discounts is " + r.getTotalBeforeDiscount());
-        
-        double dis = r.getTotalDiscount();
-        
-        System.out.println("The amount saved is " + dis);
+
         
     }
     
