@@ -1,58 +1,55 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
+
 package jpr.discountstrategy;
 import inputoutput.*;
 
-
 /**
  *
- * @author jorda_000
+ * @author Jordan Ryder
  */
 public class CashRegister {
 
     Receipt receipt;
     Reader read;
-    DataConnectionStrategy data; //I still like the cash register to be connected to the data source
+    DataConnectionStrategy data; 
     
     public CashRegister(Reader read, DataConnectionStrategy data) {
         this.read = read; 
         this.data = data;
     }
     
-    
-    
-    public void startNewSales(){
-        Receipt r = new Receipt();
+
+    public void startNewSale(){
+        receipt = new Receipt();
     }
     
-    public void printReceipt(){
-    
-    
+    /** Returns receipt with all applicable information
+     * This is useful so the cash register doesn't have to duplicate all receipt methods
+     */
+    public Receipt getReceipt(){
+        return receipt;
     }
     
-    public void setCustomer(String customer){
-        read.setPrompt("Enter Customer Number");        
-        read.read();
-        receipt.setCustomer(data.findCustomer(read.getMessage()));  
+    public void setCustomer(){
+        receipt.setCustomer(data.findCustomer(read.readAndReturn("Enter Customer Number")));  
     }
     
-    public void addItem(String prodId, int qty){
-        receipt.addItemToSale(prodId, qty);
-    }
-    
-    
-
-
-
-
-
-         
-
+    public void addItem(){
         
+        String prod = read.readAndReturn("Enter Product ID");
+        int q = Integer.valueOf(read.readAndReturn("Enter the quantity"));
+        receipt.addItemToSale(prod, q);
+    }
+
+    public String getCustomerNameFromReceipt(){
+        return receipt.getCustomerName();
+    
     }
     
     
+ }
     
-}
+    
+    
+

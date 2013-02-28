@@ -2,6 +2,8 @@
 
 package jpr.discountstrategy;
 
+import java.text.NumberFormat;
+
 /**
  *
  * @author jorda_000
@@ -12,6 +14,38 @@ public class Receipt {
     Customer customer;
     DataConnectionStrategy data;
 
+    
+    /**
+     * 
+     * @return printed receipt
+     */
+    
+    @Override
+    public String toString(){
+        
+        System.out.println(getCustomerName());
+
+        NumberFormat fmt = NumberFormat.getCurrencyInstance();
+
+        String prt = String.format("The total bill before discounts is " + fmt.format(getTotalBeforeDiscount()));
+        System.out.println(prt);
+
+        prt = String.format("You saved " + fmt.format(getTotalDiscount()));
+        System.out.println(prt);
+
+        prt = String.format("The total sale is " + fmt.format(getFinalTotalSale()));
+        System.out.println(prt);      
+        
+        return "";
+    }
+    
+    
+    public int getLineItemCount(){
+        return lineItems[].length; //fix this!
+    }
+    
+    
+    
     public Customer getCustomer() {
         return customer;
     }
@@ -19,6 +53,13 @@ public class Receipt {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    public String getCustomerName (){
+        if(customer == null){
+            return null;
+        }
+        return customer.getCustomerName();
+    } 
 
     public void addItemToSale(String prodId, int qty) {
         FakeDatabase db = new FakeDatabase();
@@ -63,10 +104,11 @@ public class Receipt {
         double discount = 0.0;
         for (LineItem item : lineItems) {
             discount += item.getDiscount();            
-            System.out.println(discount);
         }
         return discount;
     }   
     
-    
+    public double getFinalTotalSale(){
+        return this.getTotalBeforeDiscount() - this.getTotalDiscount();
+    } 
 }
