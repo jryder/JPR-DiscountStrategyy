@@ -46,32 +46,53 @@ public class QtyIncreaseDiscount implements DiscountStrategy {
     
     
     /**
-     * 
+     * Get the discount rate for the class
      * @return 
      */
     public double getStartingDiscountRate() {
         return startingDiscountRate;
     }
 
+    
+    /**
+     * Set the starting discount rate
+     * @param startingDiscountRate 
+     */
     public void setStartingDiscountRate(double startingDiscountRate) {
         this.startingDiscountRate = startingDiscountRate;
     }
 
+    
+    /**
+     * Get the discount increment amount
+     * @return 
+     */
     public double getIncrement() {
         return increment;
     }
 
+    
+    /**
+     * Set the increment mount
+     * @param increment 
+     */
     public void setIncrement(double increment) {
         this.increment = increment;
     }
     
+    /**
+     * Testing only
+     * @param args 
+     */
     public static void main(String[] args) {
         //QtyIncreaseDiscount q = new QtyIncreaseDiscount();
         //System.out.println(q.getDiscount(5, 10));
-        
-        
     }
 
+    /**
+     * Set discount rate.  This is needed for polymorphism
+     * @param var 
+     */
     @Override
     public void setVariable(double var) {
 	startingDiscountRate = var;

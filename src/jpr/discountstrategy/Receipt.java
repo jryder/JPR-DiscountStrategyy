@@ -24,11 +24,15 @@ public class Receipt {
 
     }
 
+    /**
+     * This method overrides the toString method and returns a printout of what the
+     * receipt will look like when printed from the cash register.  This combines all
+     * of the attributes of the transaction
+     * 
+     * @return Receipt text of the receipt for printing
+     */
     @Override
     public String toString() {
-
-
-
 	String s = "";
 
 	NumberFormat fmt = NumberFormat.getCurrencyInstance();
@@ -69,6 +73,10 @@ public class Receipt {
 	return s;
     }
 
+    /**
+     * Gets the number of line items on the receipt
+     * @return line item count
+     */
     public int getLineItemCount() {
 
 	if (lineItems == null) {
@@ -77,14 +85,22 @@ public class Receipt {
 	return lineItems.length;
     }
 
-    public Customer getCustomer() {
-	return customer;
-    }
+    
+
+    /**
+     * Set the customer on the receipt
+     * @param customer 
+     */
 
     public void setCustomer(Customer customer) {
 	this.customer = customer;
     }
 
+    
+    /**
+     * Return the name of the customer from the customer object
+     * @return Customer name
+     */
     public String getCustomerName() {
 	if (customer == null) {
 	    return null;
@@ -92,6 +108,13 @@ public class Receipt {
 	return customer.getCustomerName();
     }
 
+    
+    /**
+     * Add item to the line item array
+     * 
+     * @param prodId
+     * @param qty 
+     */
     public void addItemToSale(String prodId, int qty) {
 	FakeDatabase db = new FakeDatabase();
 	Product product = db.findProduct(prodId);
@@ -121,8 +144,12 @@ public class Receipt {
 	    lineItems = tempItems;
 	}
     }
-    // Here's how to loop through all the line items and get a grand total
 
+    
+    /**
+     * Get the total sale without discounts
+     * @return Gross sales
+     */
     public double getTotalBeforeDiscount() {
 	double grandTotal = 0.0;
 	for (LineItem item : lineItems) {
@@ -131,6 +158,11 @@ public class Receipt {
 	return grandTotal;
     }
 
+    
+    /**
+     * Get the discount amount for all of the line items
+     * @return Total Discount
+     */
     public double getTotalDiscount() {
 	double discount = 0.0;
 	for (LineItem item : lineItems) {
@@ -139,6 +171,11 @@ public class Receipt {
 	return discount;
     }
 
+    /**
+     * Get the net sales, which is total sales - discounts
+     * 
+     * @return Net Sales
+     */
     public double getFinalTotalSale() {
 	return this.getTotalBeforeDiscount() - this.getTotalDiscount();
     }
