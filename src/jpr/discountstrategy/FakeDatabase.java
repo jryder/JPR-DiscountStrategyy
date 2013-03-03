@@ -4,7 +4,10 @@ package jpr.discountstrategy;
 
 /**
  *
- * @author jorda_000
+ * This is a mock database that is used for testing the POS system in a development
+ * environment without an actual database connection
+ * 
+ * @author Jordan Ryder
  */
 public class FakeDatabase implements DataConnectionStrategy {
 
@@ -25,6 +28,14 @@ public class FakeDatabase implements DataConnectionStrategy {
     };
 
 
+    /**
+     * 
+     * This searches for a customer and returns the customer if a customer ID exists
+     * 
+     * @param custId
+     * @return Customer object of Customer
+     */
+    
     @Override
     public final Customer findCustomer(final String custId) {
         // validation is needed
@@ -39,6 +50,14 @@ public class FakeDatabase implements DataConnectionStrategy {
     }
 
 
+    
+    /**
+     * 
+     * This finds a product and returns the product if the ID matches
+     * 
+     * @param prodId
+     * @return Product - instance of Product class
+     */
     @Override
     public final Product findProduct(final String prodId) {
         // validation is needed

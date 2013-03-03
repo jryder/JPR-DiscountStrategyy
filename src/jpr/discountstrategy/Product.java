@@ -1,11 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package jpr.discountstrategy;
 
 /**
  *
+ * This class is responsible for holding information on the specific products on 
+ * the receipt.  
+ * 
  * @author jryder
  */
 public class Product {
@@ -15,6 +15,15 @@ public class Product {
     private double unitSell;
     private DiscountStrategy discountStrategy;
  
+    
+    /**
+     * Constructor, this can not be instantiated without setting what the product is
+     * 
+     * @param prod
+     * @param nam
+     * @param sell
+     * @param disc 
+     */
     public Product(String prod, String nam, double sell, DiscountStrategy disc) {
 
 	productId = prod;
@@ -24,14 +33,25 @@ public class Product {
 	
     }
 
+    /**
+     * Getter for the product ID
+     * @return ProductId
+     */
     public String getProductId() {
 	return productId;
     }
 
+    /**
+     * Setter for the product ID
+     * 
+     * @param productId 
+     */
     public void setProductId(String productId) {
 	this.productId = productId;
     }
 
+    
+    
     public DiscountStrategy getDiscountStrategy() {
 	return discountStrategy;
     }
@@ -60,6 +80,11 @@ public class Product {
 	this.unitSell = unitSell;
     }
 
+    
+    /**
+     * Testing only
+     * @param args 
+     */
     public static void main(String[] args) {
 	
 

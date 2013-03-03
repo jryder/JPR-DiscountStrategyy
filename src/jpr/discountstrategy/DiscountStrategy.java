@@ -1,12 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package jpr.discountstrategy;
 
 /**
  *
- * @author jryder
+ * Interface that determines what methods a discount strategy should have
+ * 
+ * @author Jordan Ryder
  */
 public interface DiscountStrategy {
 

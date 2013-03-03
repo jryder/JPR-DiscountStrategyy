@@ -1,7 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
 package jpr.discountstrategy;
 
 
@@ -12,22 +10,39 @@ package jpr.discountstrategy;
  */
 public class FlatAmountDiscount implements DiscountStrategy {
     
+    
     private double discountAmount = 100;
 
-
+    /**
+     * Sets the flat discount amount
+     * 
+     * @param discountAmount 
+     */
     public void setDiscountAmount(double discountAmount) {
         this.discountAmount = discountAmount;
     }
+    
+    /**
+     * getter to retrieve the discount amount total.  The qty has no impact here
+     * 
+     * @param unitSell
+     * @param qty
+     * @return discountAmount
+     */
     
     @Override
     public double getDiscount(double unitSell, int qty){
         return discountAmount;
     }
   
-    public static void main(String[] args) {
-        
-    }
 
+    
+    /**
+     * 
+     * sets a variable.  This method sets the discountAmount
+     * 
+     * @param var 
+     */
     @Override
     public void setVariable(double var) {
 	discountAmount = var;
