@@ -11,9 +11,9 @@ import java.util.Date;
  */
 public class Receipt {
 
-    LineItem lineItems[];
-    Customer customer;
-    DataConnectionStrategy data;
+    private LineItem lineItems[];
+    private Customer customer;
+    private DataConnectionStrategy data;
 
     /**
      *

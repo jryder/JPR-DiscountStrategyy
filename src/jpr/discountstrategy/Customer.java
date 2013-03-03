@@ -11,8 +11,8 @@ package jpr.discountstrategy;
  * @author Jordan Ryder
  */
 class Customer {
-    String customerId;
-    String customerName;
+    private String customerId;
+    private String customerName;
 
     
     /**

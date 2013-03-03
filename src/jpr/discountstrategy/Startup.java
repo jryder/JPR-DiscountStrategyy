@@ -5,7 +5,7 @@ import inputoutput.*;
 
 /**
  *
- * @author jorda_000
+ * @author Jordan Ryder
  * 
  * This is just a startup class that runs an instance of a POS system, starting with a Cash Register
  */
@@ -17,7 +17,7 @@ public class Startup {
 	Reader rd = new GUIReader();
 	Writer wr = new GUIWriter();
 	DataConnectionStrategy data = new FakeDatabase();
-	CashRegister cash = new CashRegister(rd, data);
+	CashRegister cash = new CashRegister(rd, data, wr);
 
 	//let's get ready to rumble
 	cash.startNewSale();
