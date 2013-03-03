@@ -32,16 +32,23 @@ public class Startup {
             }
         }
         
+	
+	int c = 0;
+	int cx = 0;
         
-        while (cash.getCustomerNameFromReceipt() == null){
-        cash.setCustomer();
-            if(cash.getCustomerNameFromReceipt() == null){
+        while (c == cx){
+	    
+	//check number of line items before and after.  Better validation will be created later.      
+	c = cash.getLineItemCount();  //count before  
+	cash.addItem(); //try adding item
+	cx = cash.getLineItemCount(); //count after
+	   if(c == cx){		
                 System.out.println("That is not a valid customer number.");
             }
-        }      
+        }
         
         
-        cash.addItem();
+
         
         
         

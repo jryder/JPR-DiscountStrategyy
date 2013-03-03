@@ -41,7 +41,8 @@ public class Receipt {
     
     
     public int getLineItemCount(){
-        return lineItems[].length; //fix this!
+	
+        return lineItems.length; //fix this!
     }
     
     

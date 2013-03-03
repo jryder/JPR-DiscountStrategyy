@@ -32,16 +32,23 @@ public class CashRegister {
     }
     
     public void setCustomer(){
+	
+	
+	
         receipt.setCustomer(data.findCustomer(read.readAndReturn("Enter Customer Number")));  
     }
     
     public void addItem(){
-        
         String prod = read.readAndReturn("Enter Product ID");
         int q = Integer.valueOf(read.readAndReturn("Enter the quantity"));
         receipt.addItemToSale(prod, q);
     }
 
+    public int getLineItemCount(){
+	return receipt.getLineItemCount();
+    }
+    
+    
     public String getCustomerNameFromReceipt(){
         return receipt.getCustomerName();
     
