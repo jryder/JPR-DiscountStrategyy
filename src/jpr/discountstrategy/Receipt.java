@@ -20,44 +20,53 @@ public class Receipt {
      * @return printed receipt
      */
     
+    
+    public String addString(String s1, String s2)
+    {
+	return s1 + "\n"+ s2;
+    
+    }
+
+	    
+	    
     @Override
     public String toString(){
         
 	
+	String s = "";
+	
         NumberFormat fmt = NumberFormat.getCurrencyInstance();
 	
+	s = addString(s,"\n\n\n*********** Kohls ***********") ;
+	s = addString(s, "******* Proof of Sale *******\n");
 	
 	
-	
-	
-	System.out.println("\n\n\n*********** Kohls ***********");
-	System.out.println("******* Proof of Sale *******\n");
-	
-	
-        System.out.println(getCustomerName() + ", Thank You for Shopping at Kohls.\n");
-	System.out.println("----Item Summary----");
+       s =  addString(s,getCustomerName() + ", Thank You for Shopping at Kohls.\n");
+	s = addString(s,"----Item Summary----");
 	
 	
 	//pring all line items
 	for (LineItem l: lineItems){
-	    System.out.println(l.getProductDescription() + "..... " + String.valueOf(l.getQty()) + " " + "each @ " + fmt.format(l.getUnitSell()) + "....." + fmt.format(l.getOrigPriceSubtotal())); 
+	    String s3 = l.getProductDescription() + "..... " + String.valueOf(l.getQty()) + " " + "each @ " + fmt.format(l.getUnitSell()) + "....." + fmt.format(l.getOrigPriceSubtotal());
+	    s = addString(s,s3); 
 	}
 	
 	
-	System.out.println("\n");
+	s += "\n" ;
 	
 	
 
         String prt = String.format("The total bill before discounts is " + fmt.format(getTotalBeforeDiscount()));
-        System.out.println(prt);
+        s = addString(s,prt);
 
         prt = String.format("You saved " + fmt.format(getTotalDiscount()));
-        System.out.println(prt );
+        s = addString(s, prt);
 
         prt = String.format("The total sale is " + fmt.format(getFinalTotalSale()) + "\n");
-        System.out.println(prt + "\nThank you for Shopping at Kohls! \nVisit us at everythingisonsaleallthetime.com");
+        s = addString(s,prt);	
+        s = addString(s, "Thank you for Shopping at Kohls! \nVisit us at everythingisonsaleallthetime.com");
         
-        return "";
+        return s;
     }
     
     

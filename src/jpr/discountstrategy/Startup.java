@@ -1,15 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package jpr.discountstrategy;
 
 import inputoutput.*;
-import java.text.NumberFormat;
 
 /**
  *
  * @author jorda_000
+ * 
+ * This is just a startup class that runs an instance of a POS system, starting with a Cash Register
  */
 public class Startup {
 
@@ -67,13 +65,12 @@ public class Startup {
 
 
 	//after all transactions are complete, return the receipt 
-	Receipt r = cash.getReceipt();
-
-	String saleText = r.toString();
+	String saleText = cash.printReceipt();
 
 	//beam me up, Scotty
 	System.out.println(saleText);
 
 
     }
+    
 }

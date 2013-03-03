@@ -27,8 +27,8 @@ public class CashRegister {
     /** Returns receipt with all applicable information
      * This is useful so the cash register doesn't have to duplicate all receipt methods
      */
-    public Receipt getReceipt(){
-        return receipt;
+    public String printReceipt(){
+	    return  receipt.toString();
     }
     
     public void setCustomer(){
