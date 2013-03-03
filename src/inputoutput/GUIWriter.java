@@ -11,7 +11,7 @@ public class GUIWriter implements Writer {
 
     @Override
     public void write(String message) {
-	JOptionPane.showMessageDialog(null,"The GUI copied " + message);
+	JOptionPane.showMessageDialog(null,message);
     }
     
 }

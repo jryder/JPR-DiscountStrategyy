@@ -10,6 +10,10 @@ package jpr.discountstrategy;
  */
 public class LineItem {
     private int qty;
+
+    public int getQty() {
+	return qty;
+    }
     private Product product; 
 
     public LineItem(Product product, int qty) {
@@ -24,6 +28,15 @@ public class LineItem {
     public double getDiscount(){
         return product.getDiscount(qty);
     } 
+    
+    
+    public String getProductDescription(){
+	return product.getName();
+    }
+    
+    public double getUnitSell(){
+	return product.getUnitSell();
+    }
      
      
 }

@@ -23,18 +23,39 @@ public class Receipt {
     @Override
     public String toString(){
         
-        System.out.println(getCustomerName());
-
+	
         NumberFormat fmt = NumberFormat.getCurrencyInstance();
+	
+	
+	
+	
+	
+	System.out.println("\n\n\n*********** Kohls ***********");
+	System.out.println("******* Proof of Sale *******\n");
+	
+	
+        System.out.println(getCustomerName() + ", Thank You for Shopping at Kohls.\n");
+	System.out.println("----Item Summary----");
+	
+	
+	//pring all line items
+	for (LineItem l: lineItems){
+	    System.out.println(l.getProductDescription() + "..... " + String.valueOf(l.getQty()) + " " + "each @ " + fmt.format(l.getUnitSell()) + "....." + fmt.format(l.getOrigPriceSubtotal())); 
+	}
+	
+	
+	System.out.println("\n");
+	
+	
 
         String prt = String.format("The total bill before discounts is " + fmt.format(getTotalBeforeDiscount()));
         System.out.println(prt);
 
         prt = String.format("You saved " + fmt.format(getTotalDiscount()));
-        System.out.println(prt);
+        System.out.println(prt );
 
-        prt = String.format("The total sale is " + fmt.format(getFinalTotalSale()));
-        System.out.println(prt);      
+        prt = String.format("The total sale is " + fmt.format(getFinalTotalSale()) + "\n");
+        System.out.println(prt + "\nThank you for Shopping at Kohls! \nVisit us at everythingisonsaleallthetime.com");
         
         return "";
     }
@@ -42,7 +63,10 @@ public class Receipt {
     
     public int getLineItemCount(){
 	
-        return lineItems.length; //fix this!
+	if (lineItems == null){
+	    return 0;
+	}
+        return lineItems.length;
     }
     
     
