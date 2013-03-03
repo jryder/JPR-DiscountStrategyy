@@ -51,31 +51,51 @@ public class Product {
     }
 
     
-    
-    public DiscountStrategy getDiscountStrategy() {
-	return discountStrategy;
-    }
 
-    public void setDiscountStrategy(DiscountStrategy discountStrategy) {
-	this.discountStrategy = discountStrategy;
-    }
-
+    /**
+     * Returns the name of the product as a string
+     * @return name
+     */
     public String getName() {
 	return name;
     }
     
+    
+    /**
+     * This is called from the line higher level class.  This calculates the total
+     * discount by accounting for the quantity.
+     * 
+     * @param qty
+     * @return Total discount for the line
+     */
     public double getDiscount(int qty){
 	return  discountStrategy.getDiscount(unitSell, qty); //pull this from the line item later
     }
 
+    /**
+     * Set name of product
+     * 
+     * @param name 
+     */
     public void setName(String name) {
 	this.name = name;
     }
 
+    /**
+     * Returns the unit sell for the product
+     * 
+     * @return unit sell for a quantity of 1
+     */
     public double getUnitSell() {
 	return unitSell;
     }
 
+    
+    /**
+     * Sets the product unit sell
+     * 
+     * @param unitSell 
+     */
     public void setUnitSell(double unitSell) {
 	this.unitSell = unitSell;
     }
